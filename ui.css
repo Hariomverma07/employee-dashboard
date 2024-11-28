@@ -1,0 +1,38 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Poppins",sans-serif;
+    text-decoration: none;
+}
+
+body{
+    background: khaki;
+}
+
+.nav{
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    height: 100%;
+    left: 0px;
+    background: #fff;
+    width: 140px;
+    overflow: hidden;
+    /* transition: width 0.2s linear; */
+    /* box-shadow: 0 20px 35px rgba(0, 0, 0,0.1); */
+}
+.nav ul li{
+    list-style-type: none;
+    display: flex;
+}
+
+.demo1{
+    position: absolute;
+    margin-top: 15vw;
+    margin-left: 15vw;
+}
+
+.frm{
+    /* position: relative; */
+    
+}
