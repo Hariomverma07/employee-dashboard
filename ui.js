@@ -4,12 +4,12 @@ function editrow(id){
     document.getElementById(`ct-${id}`).removeAttribute("readonly");
     document.getElementById(`sl-${id}`).removeAttribute("readonly");
    
-    document.getElementById(`edit-${id}`).style.display = "none";
+    document.getElementById(`edit-${id}`).style.display = "inline";
     document.getElementById(`save-${id}`).style.display = "inline";
    }
    
    
-   async function saverow(){
+   async function saverow(id){
        let url = `http://localhost:3000/employees/${id}`;
        let empno = document.getElementById(`eno-${id}`).value;
        let name = document.getElementById(`nm-${id}`).value;
@@ -47,14 +47,15 @@ function editrow(id){
      alert("data deleted");
    }
 
+   document.getElementById("btn").addEventListener("click", add);
 
 async function add(e) {
   e.preventDefault();
-  let url = `http://localhost:3000/employees/${id}`;
-  let empno = document.getElementById(`eno-${id}`).value;
-  let name = document.getElementById(`nm-${id}`).value;
-  let city = document.getElementById(`ct-${id}`).value;
-  let salary = document.getElementById(`sl-${id}`).value;
+  let url = `http://localhost:3000/employees`;
+  let empno = document.getElementById(`empno`).value;
+  let name = document.getElementById(`nm`).value;
+  let city = document.getElementById(`ct`).value;
+  let salary = document.getElementById(`sl`).value;
 
   try{
   let responseObject = await fetch(url, {
@@ -81,11 +82,8 @@ async function add(e) {
     console.error("Error:", error);
     alert("Error sending data");
   }
-  document.getElementById("btn").addEventListener("click", add);
 }
 
-   
-   
    async function display() {
        let table = `
        <table>
@@ -113,9 +111,9 @@ async function add(e) {
            <td><input type = "number" value="${key.salary}" id="sl-${key.id}" readonly</td>
    
            <td>
+           <a onclick="editrow('${key.id}')" id="edit-${key.id}"class="button button-edit"> Edit </a>&nbsp;&nbsp;&nbsp;
+           <a onclick="saverow('${key.id}')"  id="save-${key.id}" class="button button-save"> Save </a>&nbsp;&nbsp;&nbsp;
            <a onclick="recdel('${key.id}')" class="button button-delete"> Delete </a>
-           <a onclick="editrow('${key.id}')" id="edit-${key.id}"class="button button-edit"> Edit </a>
-           <a onclick="saverow('${key.id}')"  id="save-${key.id}" class="button button-save"> Save </a>
            </td>
            </tr>
            `
@@ -123,3 +121,8 @@ async function add(e) {
        document.getElementById("demo").innerHTML = table;
    }
    display();
+
+
+  //  closer hoisting let var const difference
+
+  

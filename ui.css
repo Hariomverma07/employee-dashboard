@@ -6,7 +6,7 @@
 }
 
 body{
-    background: khaki;
+    background-image: url(https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?cs=srgb&dl=pexels-padrinan-255379.jpg&fm=jpg);
 }
 
 .nav{
@@ -25,6 +25,39 @@ body{
     list-style-type: none;
     display: flex;
 }
+@media (max-width:1024px){
+    .nav{
+        display: none;
+    }
+    .smallnav{
+        display: flex;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+    #opennav:checked ~ .Opennav{
+        display: flex;
+        left: 0px;
+        transition: left 1s;
+    }
+}
+
+
+@media (max-width:431px){
+    .nav{
+        display: none;
+    }
+    .smallnav{
+        display: flex;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+    #opennav:checked ~ .Opennav{
+        display: flex;
+        left: 0px;
+        transition: left 1s;
+    }
+}
+
 
 .demo1{
     position: absolute;
@@ -33,6 +66,38 @@ body{
 }
 
 .frm{
-    /* position: relative; */
-    
+    position: absolute;
+    margin-top: 5vw;
+    margin-left: 18vw;
+}
+
+
+@media (max-width:431px){
+    .frm{
+        display: flex;
+        margin-top: 500px;
+        margin-left: 0px;
+    }
+}
+.button-edit{
+    background-color: green;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.button-delete{
+    background-color: red;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+
+
+td{
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+}
+input{
+    text-align: center;
 }
